@@ -35,9 +35,9 @@ updateMyDatabase(sqLiteDatabase,0,DB_VERSION);
                     + "NAME TEXT, "
                     + "ADDRESS TEXT, "
                     + "WEBSITE TEXT);");
-            Insert("Rema 1000", "Møllevangs 10, 8210", "www.rema.dk");
-            addShop("Kvickly", "aabyhojvej 19, 8210", "www.kvickly.dk");
-            addShop("Bilka", "bilkavej 10, 8000","www.bilka.dk" );
+           // Insert("Rema 1000", "Møllevangs 10, 8210", "www.rema.dk");
+           // addShop("Kvickly", "aabyhojvej 19, 8210", "www.kvickly.dk");
+          //  addShop("Bilka", "bilkavej 10, 8000","www.bilka.dk" );
         }
 //        if (oldVersion < 2) {
 //            db.execSQL("ALTER TABLE SHOP ADD COLUMN OPEN BOOLEAN;");
