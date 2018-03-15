@@ -10,7 +10,7 @@ import android.widget.Toast;
 /**
  * Created by Mads Stoltenborg on 15-03-2018.
  */
-
+//TODO: Denne adapter virker ikke
 public class ShopCursorAdapter extends SimpleCursorAdapter{
     ShopCursorAdapter(Context context, int layout, Cursor c,
                        String[] from, int[] to, int flags) {
