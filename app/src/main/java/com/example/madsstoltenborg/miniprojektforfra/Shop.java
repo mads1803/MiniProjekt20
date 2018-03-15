@@ -10,17 +10,19 @@ public class Shop {
     private String website;
     private long id;
 
-    public Shop(String name, String adress, String website) {
+    public Shop(String name, String address, String website) {
+        this(-1, name, address, website);
+    }
+
+    public Shop(long id, String name, String address, String website) {
+        this.id = id;
         this.name = name;
-        this.address = adress;
+        this.address = address;
         this.website = website;
     }
 
-    public Shop(long id, String name, String adress, String website) {
-        this.id = id;
-        this.name = name;
-        this.address = adress;
-        this.website = website;
+    public long getId(){
+        return id;
     }
 
     public String getName() {
