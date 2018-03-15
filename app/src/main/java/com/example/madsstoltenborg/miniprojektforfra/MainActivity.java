@@ -1,11 +1,15 @@
 package com.example.madsstoltenborg.miniprojektforfra;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,6 +17,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (doesDatabaseExist(getApplicationContext(), "Shopping")== false){
+            Log.d("Demo", "SUCCCES");
+        }
 
 
         //Create an OnItemClickListener
@@ -37,6 +45,13 @@ public class MainActivity extends AppCompatActivity {
         // Initialize DatabaseHelper
         ShoppingDatabaseHelper.setApplicationContext(this);
     }
+
+    //Checking if db exists
+    private static boolean doesDatabaseExist(Context context, String dbName) {
+        File dbFile = context.getDatabasePath(dbName);
+        return dbFile.exists();
+    }
+
 
 
 
