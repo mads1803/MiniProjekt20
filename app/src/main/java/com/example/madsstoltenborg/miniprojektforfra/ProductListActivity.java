@@ -19,8 +19,9 @@ public class ProductListActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_shop_list);
-        ListView listProduct = (ListView) findViewById(R.id.list_products);
+        setContentView(R.layout.activity_product_list);
+        ListView listProducts = (ListView) findViewById(R.id.list_products);
+
         try {
             cursor = Storage.getInstance().getProducts();
             listAdapter = new ProductCursorAdapter(this,
@@ -29,24 +30,10 @@ public class ProductListActivity extends Activity {
                     new String[]{"NAME", "VOLUME"},
                     new int[]{R.id.productName, R.id.productVolume},
                     0);
-            listProduct.setAdapter(listAdapter);
-        }
-        catch (SQLiteException e){
+            listProducts.setAdapter(listAdapter);
+        } catch (SQLiteException e) {
             Toast toast = Toast.makeText(this, "DATABASE UNAVILABLE", Toast.LENGTH_SHORT);
             toast.show();
         }
     }
-    /*@Override
-    protected void onRestart() {
-        super.onRestart();
-        cursor = Storage.getInstance().getShops();
-        listAdapter.changeCursor(cursor);
-    }*/
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        cursor.close();
-    }
 }
-
