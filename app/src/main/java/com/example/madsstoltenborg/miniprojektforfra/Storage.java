@@ -75,6 +75,14 @@ public class Storage {
         return new ShopCursorWrapper(cursor);
     }
 
+    //GroceryList crud
+
+    public static void insertGroceryList(String name){
+        SQLiteDatabase db = shoppingDatabaseHelper.getWritableDatabase();
+        ContentValues groceryValues = new ContentValues();
+        groceryValues.put("NAME", name);
+        db.insert("GROCERYLISTS",null ,groceryValues);
+         }
 
     public GroceryCursorWrapper getGroceryLists(){
         SQLiteDatabase db = shoppingDatabaseHelper.getReadableDatabase();
