@@ -71,8 +71,8 @@ public class Storage {
 
     public ShopCursorWrapper getProducts(){
         SQLiteDatabase db = shoppingDatabaseHelper.getReadableDatabase();
-      Cursor cursor =  db.query("PRODUCT", new String[]{"_id", "NAME", "VOLUME"}, null, null, null, null, null);
-    return new ShopCursorWrapper(cursor);
+        Cursor cursor =  db.query("PRODUCT", new String[]{"_id", "NAME", "VOLUME"}, null, null, null, null, null);
+        return new ShopCursorWrapper(cursor);
     }
 
 
