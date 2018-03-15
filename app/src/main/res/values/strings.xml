@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MiniprojektFORFRA</string>
+    <string-array name="options">
+        <item>Shops</item>
+        <item>Products</item>
+        <item>Others</item>
+    </string-array>
 </resources>
