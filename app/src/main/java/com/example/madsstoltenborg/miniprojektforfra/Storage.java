@@ -71,10 +71,18 @@ public class Storage {
 
     public ShopCursorWrapper getProducts(){
         SQLiteDatabase db = shoppingDatabaseHelper.getReadableDatabase();
-      Cursor cursor =  db.query("PRODUCT", new String[]{"_id", "NAME", "VOLUME"}, null, null, null, null, null);
-    return new ShopCursorWrapper(cursor);
+        Cursor cursor =  db.query("PRODUCT", new String[]{"_id", "NAME", "VOLUME"}, null, null, null, null, null);
+        return new ShopCursorWrapper(cursor);
     }
 
+    //GroceryList crud
+
+    public static void insertGroceryList(String name){
+        SQLiteDatabase db = shoppingDatabaseHelper.getWritableDatabase();
+        ContentValues groceryValues = new ContentValues();
+        groceryValues.put("NAME", name);
+        db.insert("GROCERYLISTS",null ,groceryValues);
+         }
 
     public GroceryCursorWrapper getGroceryLists(){
         SQLiteDatabase db = shoppingDatabaseHelper.getReadableDatabase();
