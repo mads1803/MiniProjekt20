@@ -39,6 +39,14 @@ public class Storage {
             insertProduct("Kage", "500 G");
             insertProduct("Ske", "1 stk");
         }
+
+        if(getGroceryLists().getCount() == 0){
+            insertGroceryList("Indkøbsliste 1");
+            insertGroceryList("Indkøbsliste 2");
+            insertGroceryList("Indkøbsliste 3");
+
+
+        }
     }
     // Shop CRUD Database Operations
     public static void insertShop(String name, String address, String website) {
@@ -86,7 +94,7 @@ public class Storage {
 
     public GroceryCursorWrapper getGroceryLists(){
         SQLiteDatabase db = shoppingDatabaseHelper.getReadableDatabase();
-        Cursor cursor = db.query("GROCERYLISTS", new String[]{"_id", "Name"}, null, null, null, null, null, null);
+        Cursor cursor = db.query("GROCERYLISTS", new String[]{"_id", "NAME"}, null, null, null, null, null, null);
         return new GroceryCursorWrapper(cursor);
     }
 
