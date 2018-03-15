@@ -6,13 +6,23 @@ package com.example.madsstoltenborg.miniprojektforfra;
 
 public class Shop {
     private String name;
-    private String adress;
+    private String address;
     private String website;
+    private long id;
 
-    public Shop(String name, String adress, String website) {
+    public Shop(String name, String address, String website) {
+        this(-1, name, address, website);
+    }
+
+    public Shop(long id, String name, String address, String website) {
+        this.id = id;
         this.name = name;
-        this.adress = adress;
+        this.address = address;
         this.website = website;
+    }
+
+    public long getId(){
+        return id;
     }
 
     public String getName() {
@@ -24,11 +34,11 @@ public class Shop {
     }
 
     public String getAdress() {
-        return adress;
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAdress(String address) {
+        this.address = address;
     }
 
     public String getWebsite() {
