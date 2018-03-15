@@ -12,22 +12,22 @@ import android.database.sqlite.SQLiteDatabase;
 public class Storage {
 
     private static Storage storage;
-    private static ShoppingDBHelper shoppingDatabaseHelper;
+    private static ShoppingDBHelper shoppingDatabaseHelper = ShoppingDBHelper.getInstance();
 
     public static Storage getInstance(){
         if(storage == null){
             storage = new Storage();
-            addDummyData();
+            storage.addDummyData();
         }
         return storage;
     }
 
-    public static void addDummyData() {
+    public  void addDummyData() {
         // Tilføjer dummy butikker, såfremt der ikke er nogle data i butikstabellen
-        SQLiteDatabase db = shoppingDatabaseHelper.getReadableDatabase();
+        //SQLiteDatabase db = shoppingDatabaseHelper.getReadableDatabase();
 
-        Cursor c = db.rawQuery("SELECT * FROM SHOP", null);
-        if (c.getCount() == 0) {
+       // Cursor c = db.rawQuery("SELECT * FROM SHOP", null);
+        if (getShops().getCount() == 0) {
 
             insertShop("Rema 1000", "Møllevangs 10, 8210", "www.rema.dk");
             insertShop("Kvickly", "aabyhojvej 19, 8210", "www.kvickly.dk");
@@ -45,7 +45,7 @@ public class Storage {
         db.insert("SHOP", null, shopValues);
     }
     // én
-    public Cursor getShops()
+    public ShopCursorWrapper getShops()
     {
         SQLiteDatabase db = shoppingDatabaseHelper.getReadableDatabase();
         Cursor cursor =  db.query("SHOP",
