@@ -15,6 +15,6 @@ public class ShopCursorWrapper extends CursorWrapper {
         String name = getString(getColumnIndex("NAME"));
         String address = getString(getColumnIndex("ADDRESS"));
         String website = getString(getColumnIndex("WEBSITE"));
-        return new Shop(name, address, website);
+        return new Shop(id, name, address, website);
     }
 }

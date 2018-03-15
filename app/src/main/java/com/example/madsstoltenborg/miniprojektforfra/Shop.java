@@ -8,8 +8,16 @@ public class Shop {
     private String name;
     private String address;
     private String website;
+    private long id;
 
     public Shop(String name, String adress, String website) {
+        this.name = name;
+        this.address = adress;
+        this.website = website;
+    }
+
+    public Shop(long id, String name, String adress, String website) {
+        this.id = id;
         this.name = name;
         this.address = adress;
         this.website = website;
