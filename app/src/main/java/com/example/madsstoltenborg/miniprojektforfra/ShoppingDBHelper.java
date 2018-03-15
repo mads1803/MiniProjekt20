@@ -53,7 +53,6 @@ public class ShoppingDBHelper extends SQLiteOpenHelper {
             db.execSQL("CREATE TABLE PRODUCT ("
                     + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
                     + "NAME TEXT, "
-                    + "PRICE TEXT, "
                     + "VOLUME TEXT);");
 
             //tabel til bundne af shop og products
