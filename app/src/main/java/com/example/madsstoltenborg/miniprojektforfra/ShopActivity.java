@@ -19,10 +19,10 @@ public class ShopActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop);
         try {
-            //Get the drink from the intent
+            //Get the shop from the intent
             int shopId = (Integer) getIntent().getExtras().get(EXTRA_SHOPID);
 
-            Shop shop = Storage.getInstance().getShop(shopId);
+            /*Shop shop = Storage.getInstance().getShops(shopId);
 
             TextView name = (TextView) findViewById(R.id.name);
             name.setText(shop.getName());
@@ -31,7 +31,7 @@ public class ShopActivity extends Activity {
             address.setText(shop.getAddress());
 
             TextView website = (TextView) findViewById(R.id.website);
-            website.setText(shop.getWebsite());
+            website.setText(shop.getWebsite());*/
 
         } catch (SQLiteException e) {
             Toast toast = Toast.makeText(this, "Database unavailable", Toast.LENGTH_SHORT);

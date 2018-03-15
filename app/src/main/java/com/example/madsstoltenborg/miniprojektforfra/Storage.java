@@ -17,6 +17,7 @@ public class Storage {
     public static Storage getInstance(){
         if(storage == null){
             storage = new Storage();
+            addDummyData();
         }
         return storage;
     }
@@ -25,7 +26,7 @@ public class Storage {
         // Tilføjer dummy butikker, såfremt der ikke er nogle data i butikstabellen
         SQLiteDatabase db = shoppingDatabaseHelper.getReadableDatabase();
 
-        Cursor c = db.rawQuery("SELECT * FROM SHOPS", null);
+        Cursor c = db.rawQuery("SELECT * FROM SHOP", null);
         if (c.getCount() == 0) {
 
             insertShop("Rema 1000", "Møllevangs 10, 8210", "www.rema.dk");
@@ -44,11 +45,13 @@ public class Storage {
         db.insert("SHOP", null, shopValues);
     }
     // én
-    public Cursor getShop(long id)
+    public Cursor getShops()
     {
         SQLiteDatabase db = shoppingDatabaseHelper.getReadableDatabase();
-        return db.query("SHOP", new String[]{"_id", "NAME", "ADDRESS", "WEBSITE"},
+        Cursor cursor =  db.query("SHOP",
+                new String[]{"_id", "NAME", "ADDRESS", "WEBSITE"},
                 null, null, null, null, null, null);
+        return new ShopCursorWrapper(cursor);
     }
 
 }

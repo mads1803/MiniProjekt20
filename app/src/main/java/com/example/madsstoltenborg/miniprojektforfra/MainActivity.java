@@ -44,7 +44,7 @@ public class MainActivity extends Activity {
         listView.setOnItemClickListener(itemClickListener);
 
         // Initialize DatabaseHelper
-       //ShoppingDBHelper.setApplicationContext(this);
+       ShoppingDBHelper.setApplicationContext(this);
 
     }
 

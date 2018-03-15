@@ -14,17 +14,27 @@ public class ShoppingDBHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "Shopping";
     private static final int DB_VERSION = 2;
+    private static Context applicationContext;
+    private static ShoppingDBHelper shoppingDBHelper;
 
+    public static void setApplicationContext(Context context){
+        applicationContext = context.getApplicationContext();
+    }
 
     public ShoppingDBHelper(Context context){
         super(context,DB_NAME, null, DB_VERSION);}
 
-    @Override
-    public void onCreate(SQLiteDatabase sqLiteDatabase) {
-updateMyDatabase(sqLiteDatabase,0,DB_VERSION);
+    public static ShoppingDBHelper getInstance(){
+        if (shoppingDBHelper == null) {
+            shoppingDBHelper = new ShoppingDBHelper(applicationContext);
+        }
+        return shoppingDBHelper;
     }
 
-
+    @Override
+    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        updateMyDatabase(sqLiteDatabase,0,DB_VERSION);
+    }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

@@ -8,7 +8,9 @@ import android.database.CursorWrapper;
  */
 
 public class ShopCursorWrapper extends CursorWrapper {
-    public ShopCursorWrapper(Cursor cursor){ super(cursor); }
+    public ShopCursorWrapper(Cursor cursor){
+        super(cursor);
+    }
 
     public Shop getShop(){
         long id = getLong(getColumnIndex("_id"));
