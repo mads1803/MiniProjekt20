@@ -1,10 +1,12 @@
 package com.example.madsstoltenborg.miniprojektforfra;
 
 import android.database.Cursor;
+import android.database.sqlite.SQLiteException;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.Toast;
 
 public class GroceryListActivity extends AppCompatActivity {
     private Cursor cursor;
@@ -23,7 +25,7 @@ public class GroceryListActivity extends AppCompatActivity {
                         new String[]{"NAME", "ADDRESS", "WEBSITE"},
                         new int[]{R.id.shopName, R.id.shopAddress, R.id.shopWebsite},
                         0);
-                listShops.setAdapter(listAdapter);
+                listOfGroceryLists.setAdapter(listAdapter);
             }
             catch (SQLiteException e){
                 Toast toast = Toast.makeText(this, "DATABASE UNAVILABLE", Toast.LENGTH_SHORT);
