@@ -50,6 +50,34 @@ public class ShoppingDBHelper extends SQLiteOpenHelper {
                     + "ADDRESS TEXT, "
                     + "WEBSITE TEXT);");
 
+            db.execSQL("CREATE TABLE PRODUCT ("
+                    + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    + "NAME TEXT, "
+                    + "PRICE TEXT, "
+                    + "VOLUME TEXT);");
+
+            //tabel til bundne af shop og products
+            db.execSQL("CREATE TABLE SHOP_PRODUCTS ("
+                    + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    + "SHOP_ID INTEGER, "
+                    + "PRODUCT_ID INTEGER, "
+                    + "PRICE NUMERIC);");
+
+            db.execSQL("CREATE TABLE GROCERYLISTS ("
+                    + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    + "NAME TEKST);");
+
+            //Bought har jeg smidt ind for at kunne bruges som boolean evt
+            db.execSQL("CREATE TABLE GROCERYLISTS_PRODUCTS ("
+                    + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    + "GROCERYLISTS_ID INTEGER, "
+                    + "SHOP_PRODUCTS_ID INTEGER, "
+                    + "BOUGHT INTEGER,"
+                    + "QUANTITY INTEGER);");
+            //TODO: View til shopproducts where productid=shopid
+
+            //TODO: view til grocerylistsproduct m
+
         }
 
     }

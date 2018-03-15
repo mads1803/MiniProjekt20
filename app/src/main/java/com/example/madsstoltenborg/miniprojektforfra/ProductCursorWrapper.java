@@ -12,11 +12,11 @@ public class ProductCursorWrapper extends CursorWrapper {
         super(cursor);
     }
 
-    public Shop getProduct(){
+    public Product getProduct(){
         long id = getLong(getColumnIndex("_id"));
         String name = getString(getColumnIndex("NAME"));
-        String address = getString(getColumnIndex("PRICE"));
+        Double price = getDouble(getColumnIndex("PRICE"));
         long shopid = getLong(getColumnIndex("SHOPID"));
-        return new Product(id, name, address, shopid);
+        return new Product(id, name, price, shopid);
     }
 }
