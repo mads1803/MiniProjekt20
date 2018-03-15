@@ -4,6 +4,6 @@
     <string-array name="options">
         <item>Shops</item>
         <item>Products</item>
-        <item>Others</item>
+        <item>Grocery List</item>
     </string-array>
 </resources>

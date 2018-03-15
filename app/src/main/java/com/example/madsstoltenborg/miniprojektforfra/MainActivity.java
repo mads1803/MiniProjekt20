@@ -36,6 +36,10 @@ public class MainActivity extends Activity {
                             Intent intent = new Intent(MainActivity.this,
                                     ShopListActivity.class);
                             startActivity(intent);
+                        } else if(position == 2){
+                            Intent intent = new Intent(MainActivity.this,
+                                    GroceryListActivity.class);
+                            startActivity(intent);
                         }
                     }
                 };
