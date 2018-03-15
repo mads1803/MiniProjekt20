@@ -44,8 +44,12 @@ public class Storage {
             insertGroceryList("Indkøbsliste 1");
             insertGroceryList("Indkøbsliste 2");
             insertGroceryList("Indkøbsliste 3");
+        }
 
-
+        if (getShopProducts().getCount() == 0){
+            insertShopProduct(1,1, 20);
+            insertShopProduct(2, 2, 30);
+            insertShopProduct(3, 3, 40);
         }
     }
     // Shop CRUD Database Operations
