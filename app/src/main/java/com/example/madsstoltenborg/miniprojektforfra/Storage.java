@@ -102,6 +102,7 @@ public class Storage {
         return new GroceryCursorWrapper(cursor);
     }
 
+    //tabel hvor shop og produkt bindes og vises price
     public static void insertShopProduct(int shop_id, int product_id, double price){
         SQLiteDatabase db = shoppingDatabaseHelper.getWritableDatabase();
         ContentValues shopProductValues = new ContentValues();
@@ -111,6 +112,7 @@ public class Storage {
         db.insert("SHOP_PRODUCTS", null, shopProductValues);
     }
 
+    //Produkter der er lagt på shops er tanken
     public static Cursor getShopProducts()
     {
         SQLiteDatabase db = shoppingDatabaseHelper.getReadableDatabase();
