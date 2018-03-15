@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 public class ShopListActivity extends AppCompatActivity {
     private Cursor cursor;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
