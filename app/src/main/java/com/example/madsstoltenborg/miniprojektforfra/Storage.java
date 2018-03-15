@@ -44,7 +44,7 @@ public class Storage {
         shopValues.put("WEBSITE", website);
         db.insert("SHOP", null, shopValues);
     }
-    // én
+
     public ShopCursorWrapper getShops()
     {
         SQLiteDatabase db = shoppingDatabaseHelper.getReadableDatabase();
@@ -53,5 +53,24 @@ public class Storage {
                 null, null, null, null, null, null);
         return new ShopCursorWrapper(cursor);
     }
+
+    // PRoduct CRUD database Operations
+    public static void insertProduct(String name, String volume){
+
+        SQLiteDatabase db = shoppingDatabaseHelper.getWritableDatabase();
+        ContentValues productValues = new ContentValues();
+        productValues.put("NAME", name);
+        productValues.put("VOLUME", volume);
+        db.insert("PRODUCT", null, productValues);
+    }
+
+    public ShopCursorWrapper getProducts(){
+        SQLiteDatabase db = shoppingDatabaseHelper.getReadableDatabase();
+      Cursor cursor =  db.query("PRODUCT", new String[]{"_id", "NAME", "VOLUME"}, null, null, null, null, null);
+    return new ShopCursorWrapper(cursor);
+    }
+
+
+
 
 }

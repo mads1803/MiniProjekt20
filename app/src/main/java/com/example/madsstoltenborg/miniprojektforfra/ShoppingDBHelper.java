@@ -74,6 +74,7 @@ public class ShoppingDBHelper extends SQLiteOpenHelper {
                     + "SHOP_PRODUCTS_ID INTEGER, "
                     + "BOUGHT INTEGER,"
                     + "QUANTITY INTEGER);");
+
             //TODO: View til shopproducts where productid=shopid
 
             //TODO: view til grocerylistsproduct m
