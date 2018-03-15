@@ -98,6 +98,15 @@ public class Storage {
         return new GroceryCursorWrapper(cursor);
     }
 
+    public static void insertShopProduct(int shop_id, int product_id, double price){
+        SQLiteDatabase db = shoppingDatabaseHelper.getWritableDatabase();
+        ContentValues shopProductValues = new ContentValues();
+        shopProductValues.put("SHOP_ID", shop_id);
+        shopProductValues.put("PRODUCT_ID", product_id);
+        shopProductValues.put("PRICE", price);
+        db.insert("SHOP_PRODUCTS", null, shopProductValues);
+    }
+
     public static Cursor getShopProducts()
     {
         SQLiteDatabase db = shoppingDatabaseHelper.getReadableDatabase();
