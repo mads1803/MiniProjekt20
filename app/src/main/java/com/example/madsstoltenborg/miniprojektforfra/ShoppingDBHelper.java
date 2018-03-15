@@ -39,11 +39,7 @@ updateMyDatabase(sqLiteDatabase,0,DB_VERSION);
                     + "NAME TEXT, "
                     + "ADDRESS TEXT, "
                     + "WEBSITE TEXT);");
-<<<<<<< HEAD
 
-
-=======
->>>>>>> a67e8b61fdf0f7590a0a8c3cb3d973720df04550
         }
 
     }

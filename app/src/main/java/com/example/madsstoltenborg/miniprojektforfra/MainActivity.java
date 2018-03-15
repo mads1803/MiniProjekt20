@@ -1,5 +1,6 @@
 package com.example.madsstoltenborg.miniprojektforfra;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +12,7 @@ import android.widget.ListView;
 
 import java.io.File;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(itemClickListener);
 
         // Initialize DatabaseHelper
-        ShoppingDatabaseHelper.setApplicationContext(this);
+       //ShoppingDBHelper.setApplicationContext(this);
+
     }
 
     //Checking if db exists
@@ -51,12 +53,5 @@ public class MainActivity extends AppCompatActivity {
         File dbFile = context.getDatabasePath(dbName);
         return dbFile.exists();
     }
-
-
-
-
-
-
-
 
 }

@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-<<<<<<< HEAD
-      <module fileurl="file://$PROJECT_DIR$/FinalRepoMiniProjekt.iml" filepath="$PROJECT_DIR$/FinalRepoMiniProjekt.iml" />
-      <module fileurl="file://C:\Users\Mads Stoltenborg\AndroidStudioProjects\MiniprojektFINAL\FinalRepoMiniProjekt.iml" filepath="C:\Users\Mads Stoltenborg\AndroidStudioProjects\MiniprojektFINAL\FinalRepoMiniProjekt.iml" />
-      <module fileurl="file://C:\Users\simon\Documents\FinalRepoMiniProjekt\MiniprojektFINAL.iml" filepath="C:\Users\simon\Documents\FinalRepoMiniProjekt\MiniprojektFINAL.iml" />
-=======
-      <module fileurl="file://C:\Users\Mads Stoltenborg\AndroidStudioProjects\MiniprojektFINAL\MiniProjekt20.iml" filepath="C:\Users\Mads Stoltenborg\AndroidStudioProjects\MiniprojektFINAL\MiniProjekt20.iml" />
       <module fileurl="file://$PROJECT_DIR$/MiniprojektFINAL.iml" filepath="$PROJECT_DIR$/MiniprojektFINAL.iml" />
->>>>>>> a67e8b61fdf0f7590a0a8c3cb3d973720df04550
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
