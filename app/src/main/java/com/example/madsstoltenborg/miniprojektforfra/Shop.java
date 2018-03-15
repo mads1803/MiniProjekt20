@@ -33,7 +33,7 @@ public class Shop {
         this.name = name;
     }
 
-    public String getAdress() {
+    public String getAddress() {
         return address;
     }
 
