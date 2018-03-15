@@ -8,6 +8,10 @@ public class GroceryList {
     private long id;
     private String name;
 
+    public GroceryList(String name) {
+        this(-1, name);
+    }
+
     public GroceryList(long id, String name){
         this.id = id;
         this.name = name;
