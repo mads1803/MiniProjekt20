@@ -32,7 +32,12 @@ public class Storage {
             insertShop("Rema 1000", "Møllevangs 10, 8210", "www.rema.dk");
             insertShop("Kvickly", "aabyhojvej 19, 8210", "www.kvickly.dk");
             insertShop("Bilka", "bilkavej 10, 8000","www.bilka.dk" );
-
+        }
+        if(getProducts().getCount() == 0){
+            insertProduct("Havregryn", "1KG");
+            insertProduct("Mælk","1 L");
+            insertProduct("Kage", "500 G");
+            insertProduct("Ske", "1 stk");
         }
     }
     // Shop CRUD Database Operations
