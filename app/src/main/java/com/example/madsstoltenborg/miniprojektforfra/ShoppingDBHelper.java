@@ -38,14 +38,6 @@ updateMyDatabase(sqLiteDatabase,0,DB_VERSION);
                     + "NAME TEXT, "
                     + "ADDRESS TEXT, "
                     + "WEBSITE TEXT);");
-<<<<<<< HEAD:app/src/main/java/com/example/madsstoltenborg/miniprojektforfra/ShoppingDBHelper.java
-
-
-=======
-           // Insert("Rema 1000", "Møllevangs 10, 8210", "www.rema.dk");
-           // addShop("Kvickly", "aabyhojvej 19, 8210", "www.kvickly.dk");
-          //  addShop("Bilka", "bilkavej 10, 8000","www.bilka.dk" );
->>>>>>> 8e2542df16f0ef9ed492c99786ef9515df5ccec1:app/src/main/java/com/example/madsstoltenborg/miniprojektforfra/ShoppingHelper.java
         }
 
     }

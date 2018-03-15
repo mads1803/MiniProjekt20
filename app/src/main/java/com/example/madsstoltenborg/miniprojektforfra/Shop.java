@@ -6,12 +6,12 @@ package com.example.madsstoltenborg.miniprojektforfra;
 
 public class Shop {
     private String name;
-    private String adress;
+    private String address;
     private String website;
 
     public Shop(String name, String adress, String website) {
         this.name = name;
-        this.adress = adress;
+        this.address = adress;
         this.website = website;
     }
 
@@ -24,11 +24,11 @@ public class Shop {
     }
 
     public String getAdress() {
-        return adress;
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAdress(String address) {
+        this.address = address;
     }
 
     public String getWebsite() {
