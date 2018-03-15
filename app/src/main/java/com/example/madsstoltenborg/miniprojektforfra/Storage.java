@@ -98,5 +98,11 @@ public class Storage {
         return new GroceryCursorWrapper(cursor);
     }
 
+    public static Cursor getShopProducts()
+    {
+        SQLiteDatabase db = shoppingDatabaseHelper.getReadableDatabase();
+        return db.query("SHOP_PRODUCTS_VIEW", new String[]{"_id", "SHOP_ID", "PRODUCT_ID", "PRICE", "VOLUME", "SHOPNAME", "PRODUCTNAME" }, null, null, null, null, null);
+    }
+
 
 }

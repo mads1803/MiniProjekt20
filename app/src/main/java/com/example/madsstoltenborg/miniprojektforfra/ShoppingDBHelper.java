@@ -75,6 +75,13 @@ public class ShoppingDBHelper extends SQLiteOpenHelper {
                     + "QUANTITY INTEGER);");
 
             //TODO: View til shopproducts where productid=shopid
+            //a = shopproducts, b = products, c = shops
+            db.execSQL("CREATE VIEW SHOP_PRODUCTS_VIEW AS " +
+                    "SELECT " +
+                    "A._id AS _id, A.SHOP_ID AS SHOP_ID, A.PRODUCT_ID AS PRODUCT_ID, B.NAME AS PRODUCTNAME, B.VOLUME AS VOLUME, A.PRICE AS PRICE, C.NAME AS SHOPNAME " +
+                    "FROM SHOP_PRODUCTS A, PRODUCT B, SHOP C " +
+                    "WHERE A.PRODUCT_ID = B._id AND A.SHOP_ID = C._id;");
+
 
             //TODO: view til grocerylistsproduct m
 
