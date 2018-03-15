@@ -20,6 +20,7 @@ public class Storage {
         return storage;
     }
 
+<<<<<<< HEAD
     // Shop CRUD Database Operations
     public void insertShop(String name, String address, String website) {
         SQLiteDatabase db = ShoppingDBHelper.getWritableDatabase();
@@ -30,4 +31,7 @@ public class Storage {
         shopValues.put("WEBSITE", website);
         db.insert("SHOPS", null, shopValues);
     }
+=======
+
+>>>>>>> 8e2542df16f0ef9ed492c99786ef9515df5ccec1
 }
