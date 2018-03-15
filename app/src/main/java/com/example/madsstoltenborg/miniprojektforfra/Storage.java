@@ -78,7 +78,7 @@ public class Storage {
 
     public GroceryCursorWrapper getGroceryLists(){
         SQLiteDatabase db = shoppingDatabaseHelper.getReadableDatabase();
-        Cursor cursor = db.query("GROCERYLISTS", new String[]{"_id", "Name"}, null, null, null, null, null, null);
+        Cursor cursor = db.query("GROCERYLISTS", new String[]{"_id", "NAME"}, null, null, null, null, null, null);
         return new GroceryCursorWrapper(cursor);
     }
 

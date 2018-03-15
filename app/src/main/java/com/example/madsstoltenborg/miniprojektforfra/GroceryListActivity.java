@@ -18,12 +18,12 @@ public class GroceryListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_grocery_list);
         ListView listOfGroceryLists = (ListView) findViewById(R.id.list_of_GroceryLists);
             try {
-                cursor = Storage.getInstance().getShops();
+                cursor = Storage.getInstance().getGroceryLists();
                 listAdapter = new ShopCursorAdapter(this,
-                        R.layout.shop_list_item,
+                        R.layout.grocerylists_list_item,
                         cursor,
-                        new String[]{"NAME", "ADDRESS", "WEBSITE"},
-                        new int[]{R.id.shopName, R.id.shopAddress, R.id.shopWebsite},
+                        new String[]{"NAME"},
+                        new int[]{R.id.GroceryName},
                         0);
                 listOfGroceryLists.setAdapter(listAdapter);
             }
