@@ -20,6 +20,7 @@ public class Storage {
         }
         return storage;
     }
+<<<<<<< HEAD
     public static void addDummyData() {
         // Tilføjer dummy butikker, såfremt der ikke er nogle data i butikstabellen
         SQLiteDatabase db = shoppingDatabaseHelper.getReadableDatabase();
@@ -30,6 +31,12 @@ public class Storage {
             insertShop("Rema 1000", "Møllevangs 10, 8210", "www.rema.dk");
             insertShop("Kvickly", "aabyhojvej 19, 8210", "www.kvickly.dk");
             insertShop("Bilka", "bilkavej 10, 8000","www.bilka.dk" );
+=======
+    
+    // Shop CRUD Database Operations
+    public void insertShop(String name, String address, String website) {
+        SQLiteDatabase db = ShoppingDBHelper.getWritableDatabase();
+>>>>>>> a67e8b61fdf0f7590a0a8c3cb3d973720df04550
 
         }
     }
