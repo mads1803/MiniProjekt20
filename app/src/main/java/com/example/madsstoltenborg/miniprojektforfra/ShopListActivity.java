@@ -6,13 +6,18 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
 import java.util.List;
 
-public class ShopListActivity extends Activity {
+public class ShopListActivity extends AppCompatActivity {
     private Cursor cursor;
    // private SQLiteDatabase db;
     private SimpleCursorAdapter listAdapter;
@@ -22,7 +27,10 @@ public class ShopListActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop_list);
         ListView listShops = (ListView) findViewById(R.id.list_shops);
-       // SQLiteOpenHelper shoppingDBHelper = new ShoppingDBHelper(this);
+        ListView listProducts = (ListView) findViewById(R.id.list_products);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+        getSupportActionBar().setTitle("Shops");
 
         try {
          //   db = shoppingDBHelper.getReadableDatabase();
@@ -40,12 +48,38 @@ public class ShopListActivity extends Activity {
             toast.show();
         }
     }
-    /*@Override
-    protected void onRestart() {
-        super.onRestart();
-        cursor = Storage.getInstance().getShops();
-        listAdapter.changeCursor(cursor);
-    }*/
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_shops, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_options:
+                // User chose the "Settings" item, show the app settings UI...
+                //TODO: Evt give en settings mulighed
+                return true;
+
+            case R.id.action_AddShop:
+                // User chose the "Favorite" action, mark the current item
+                // as a favorite...
+
+                return true;
+            case R.id.action_deleteShop:
+                // User chose the "Favorite" action, mark the current item
+                // as a favorite...
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
 
     @Override
     public void onDestroy() {
