@@ -4,8 +4,8 @@
 
     <string name="main_options">Options</string>
 
-    <string name="add_Shop">Shops</string>
-    <string name="delete_Shop">Shops</string>
+    <string name="add_Shop">Add Shops</string>
+    <string name="delete_Shop">Delete Shops</string>
 
     <string name="add_Product">Add Products</string>
     <string name="delete_Product">Delete Products</string>
@@ -14,6 +14,7 @@
     <string name="delete_GroceryList">Delete lits</string>
 
     <string name="addProductGroceryList">Add to List</string>
+    <string name="add_shops">Add Shop</string>
 
 
     <string-array name="options">
