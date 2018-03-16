@@ -47,6 +47,7 @@ public class Storage {
         }
 
         if (getShopProducts().getCount() == 0){
+           // insertShopProduct(0,0, 10);
             insertShopProduct(1,1, 20);
             insertShopProduct(2, 2, 30);
             insertShopProduct(3, 3, 40);
