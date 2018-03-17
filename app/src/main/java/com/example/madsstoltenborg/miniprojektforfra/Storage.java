@@ -123,15 +123,20 @@ public class Storage {
 
 
 
-    public static void insertGrocerylistProduct(int shoppinglist_id, int shop_product_id, int quantity) {
+    public static void insertGrocerylistProduct(int grocerylist_id, int shop_product_id, int quantity) {
         SQLiteDatabase db = shoppingDatabaseHelper.getWritableDatabase();
         ContentValues grocerylistProductValues = new ContentValues();
-        grocerylistProductValues.put("SHOPPINGLIST_ID", shoppinglist_id);
+        grocerylistProductValues.put("GROCERYLIST_ID", grocerylist_id);
         grocerylistProductValues.put("SHOP_PRODUCT_ID", shop_product_id);
         grocerylistProductValues.put("QUANTITY", quantity);
         db.insert("GROCERYLIST_PRODUCTS", null, grocerylistProductValues);
     }
     //TODO: getProductsfromgrocerylists
+    public static Cursor getGrocerylistProducts(long grocerylist_id)
+    {
+        SQLiteDatabase db = shoppingDatabaseHelper.getReadableDatabase();
+        return db.query("GROCERYLIST_PRODUCTS_VIEW", new String[]{"_id", "GROCERYLIST_ID", "QUANTITY", "PRICE", "PRODUCTNAME", "SHOPNAME", "VOLUME", "BOUGHT"}, "GROCERYLIST_ID = " + grocerylist_id, null, null, null, null);
+    }
 
 
 
