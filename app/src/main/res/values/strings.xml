@@ -21,5 +21,6 @@
         <item>Shops</item>
         <item>Products</item>
         <item>Grocery List</item>
+        <item>My Grocery Lists</item>
     </string-array>
 </resources>
