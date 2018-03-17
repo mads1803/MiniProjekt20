@@ -114,7 +114,7 @@ public class Storage {
     }
 
     //Produkter der er lagt på shops er tanken
-    // TODO: ny overrided med id
+    // TODO: ny overrided med id - denne er mere proof of concept
     public static Cursor getShopProducts()
     {
         SQLiteDatabase db = shoppingDatabaseHelper.getReadableDatabase();
