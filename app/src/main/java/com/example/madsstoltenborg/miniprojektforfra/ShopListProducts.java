@@ -33,14 +33,14 @@ public class ShopListProducts extends AppCompatActivity {
             ListView listProducts = (ListView) findViewById(R.id.listShopProducts);
 
             try {
-                //TODO: GetShopProducts skal rettes
-                cursor = Storage.getInstance().getShopProducts();
+                //TODO: GetShopProducts skal rettes og bruges i stedet for getProducts
+                cursor = Storage.getInstance().getProducts();
                 //TODO: Skal tilføje produktet til en indkøbsliste
                 listAdapter = new ProductCursorAdapter(this,
-                        R.layout.product_list_item,
+                        R.layout.shopproduct_list_item,
                         cursor,
-                        new String[]{"NAME", "VOLUME", "PRICE"},
-                        new int[]{R.id.productName2, R.id.productVolume2, R.id.productPrice2},
+                        new String[]{"NAME", "VOLUME"}, //"PRICE"},
+                        new int[]{R.id.productName2, R.id.productVolume2}, //TODO: bruges når getshopProducts er sat op og wrapperen er lavet , R.id.productPrice2
                         0);
                 listProducts.setAdapter(listAdapter);
             } catch (SQLiteException e) {
