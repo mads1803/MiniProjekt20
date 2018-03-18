@@ -32,8 +32,10 @@ public class ShopListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop_list);
+
         ListView listShops = (ListView) findViewById(R.id.list_shops);
         ListView listProducts = (ListView) findViewById(R.id.list_products);
+
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
         getSupportActionBar().setTitle("Shops");

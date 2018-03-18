@@ -113,6 +113,8 @@ public class Storage {
         db.insert("SHOP_PRODUCTS", null, shopProductValues);
     }
 
+
+
     //Produkter der er lagt på shops er tanken
     // TODO: ny overrided med id
     public static Cursor getShopProducts()
@@ -134,5 +136,27 @@ public class Storage {
     //TODO: getProductsfromgrocerylists
 
 
+
+    //TODO: Opsætning til shopProducts
+
+    public Shop getShop(long id) {
+        SQLiteDatabase db = shoppingDatabaseHelper.getReadableDatabase();
+        Cursor cursor = db.query("SHOP",
+                new String[]{"_id", "NAME", "ADDRESS", "WEBSITE"},
+                "_id = ?",
+                new String[]{"" + id},
+                null, null, null);
+        if (cursor.moveToFirst()) {
+            String nameText = cursor.getString(cursor.getColumnIndex("NAME"));
+            String addressText = cursor.getString(cursor.getColumnIndex("ADDRESS"));
+            String websiteText = cursor.getString(cursor.getColumnIndex("WEBSITE"));
+            cursor.close();
+            return new Shop(id, nameText, addressText, websiteText);
+
+        } else {
+            cursor.close();
+            return null;
+        }
+    }
 
 }
