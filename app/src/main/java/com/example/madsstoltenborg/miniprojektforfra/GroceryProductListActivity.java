@@ -3,7 +3,9 @@ package com.example.madsstoltenborg.miniprojektforfra;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -27,7 +29,7 @@ public class GroceryProductListActivity extends AppCompatActivity {
     public static int groceryListId;
     private Cursor cursor;
     private SimpleCursorAdapter listAdapter;
-
+    private SQLiteDatabase db;
 
 
     @Override
@@ -45,8 +47,11 @@ public class GroceryProductListActivity extends AppCompatActivity {
 
         setSupportActionBar(myToolbar);
         getSupportActionBar().setTitle("GroceryProductList");
+
+        SQLiteOpenHelper dbHelper = new ShoppingDBHelper(this);
         try {
-            //TODO: get it ´to work HER ER FEJL
+            //TODO: get it ´to work HER ER FEJL / viewet lavet ikke
+          db = dbHelper.getReadableDatabase();
             // Sal have sendt id eller hentet id
             cursor = Storage.getInstance().getGrocerylistProducts(groceryListId);
             listAdapter = new ProductCursorAdapter(this,

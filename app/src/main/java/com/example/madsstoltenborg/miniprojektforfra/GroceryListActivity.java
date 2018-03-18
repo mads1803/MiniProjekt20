@@ -2,6 +2,7 @@ package com.example.madsstoltenborg.miniprojektforfra;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteException;
 import android.support.v7.app.AlertDialog;
@@ -22,7 +23,8 @@ public class GroceryListActivity extends AppCompatActivity {
     private Cursor cursor;
     private SimpleCursorAdapter listAdapter;
 
-        @Override
+    //TODO: ONCLICK LISTENER DER ÅBNER GROCERYPRODUCTLISTACTIVITY
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grocery_list);
@@ -31,20 +33,44 @@ public class GroceryListActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
         getSupportActionBar().setTitle("Grocery Lists");
-            try {
-                cursor = Storage.getInstance().getGroceryLists();
-                listAdapter = new GroceryCursorAdapter(this,
-                        R.layout.grocerylists_list_item,
-                        cursor,
-                        new String[]{"NAME"},
-                        new int[]{R.id.GroceryName},
-                        0);
-                listOfGroceryLists.setAdapter(listAdapter);
-            }
-            catch (SQLiteException e){
-                Toast toast = Toast.makeText(this, "DATABASE UNAVILABLE", Toast.LENGTH_SHORT);
-                toast.show();
-            }
+        try {
+            cursor = Storage.getInstance().getGroceryLists();
+            listAdapter = new ProductCursorAdapter(this,
+                    R.layout.grocerylists_list_item,
+                    cursor,
+                    new String[]{"NAME"},
+                    new int[]{R.id.GroceryName},
+                    0);
+            listOfGroceryLists.setAdapter(listAdapter);
+        }
+        catch (SQLiteException e){
+            Toast toast = Toast.makeText(this, "DATABASE UNAVILABLE", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+    }
+
+
+    //TODO ADAPTER
+    private class ProductCursorAdapter extends SimpleCursorAdapter {
+
+        public ProductCursorAdapter(Context context, int layout, Cursor c, String[] from, int[] to, int flags) {
+            super(context, layout, c, from, to, flags);
+        }
+
+        @Override
+        public void bindView(View view, Context context, Cursor cursor) {
+            super.bindView(view, context, cursor);
+            final int id = cursor.getInt(cursor.getColumnIndex("_id"));
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(GroceryListActivity.this, GroceryProductListActivity.class);
+                    intent.putExtra(GroceryProductListActivity.EXTRA_GROCERYID, id);
+                    startActivity(intent);
+                }
+            });
+
+        }
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu){

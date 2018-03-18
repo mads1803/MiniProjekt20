@@ -131,7 +131,7 @@ public class Storage {
         grocerylistProductValues.put("QUANTITY", quantity);
         db.insert("GROCERYLIST_PRODUCTS", null, grocerylistProductValues);
     }
-    //TODO: getProductsfromgrocerylists
+    //TODO: getProductsfromgrocerylists PRØV MED SELECT AL PÅ VIEWET i stedet
     public static Cursor getGrocerylistProducts(long grocerylist_id)
     {
         SQLiteDatabase db = shoppingDatabaseHelper.getReadableDatabase();
