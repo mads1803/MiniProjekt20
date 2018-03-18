@@ -42,7 +42,7 @@ public class GroceryProductListActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
 
 
-        groceryListId = (Integer)getIntent().getExtras().get(EXTRA_GROCERYID);
+        groceryListId = (Integer) getIntent().getExtras().get(EXTRA_GROCERYID);
 
 
         setSupportActionBar(myToolbar);
@@ -50,14 +50,14 @@ public class GroceryProductListActivity extends AppCompatActivity {
 
         SQLiteOpenHelper dbHelper = new ShoppingDBHelper(this);
         try {
-            //TODO: get it ´to work HER ER FEJL / viewet lavet ikke
-          db = dbHelper.getReadableDatabase();
+            //TODO: get it ´to work HER ER FEJL / viewet lavet ikke og adapter virker ikke
+            db = dbHelper.getReadableDatabase();
             // Sal have sendt id eller hentet id
             cursor = Storage.getInstance().getGrocerylistProducts(groceryListId);
-            listAdapter = new ProductCursorAdapter(this,
+            listAdapter = new ProductlistCursorAdapter(this,
                     R.layout.grocery_product_list_item,
                     cursor,
-                    new String[]{"PRODUCTNAME","QUANTITY", "VOLUME", "PRICE", "SHOPNAME"},
+                    new String[]{"PRODUCTNAME", "QUANTITY", "VOLUME", "PRICE", "SHOPNAME"},
                     new int[]{R.id.grocery_productName, R.id.grocer_productQuantity, R.id.grocer_productVolume, R.id.grocer_productPrice, R.id.grocer_product_shop},
                     0);
             listProducts.setAdapter(listAdapter);
@@ -66,15 +66,16 @@ public class GroceryProductListActivity extends AppCompatActivity {
             toast.show();
         }
     }
+
     @Override
-    public boolean onCreateOptionsMenu(Menu menu){
+    public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_products, menu);
         return true;
     }
-    @Override
 
-    //TODO: Ændres
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_options:
@@ -97,6 +98,14 @@ public class GroceryProductListActivity extends AppCompatActivity {
         }
     }
 
+    private class ProductlistCursorAdapter extends SimpleCursorAdapter {
+
+        public ProductlistCursorAdapter(Context context, int layout, Cursor c, String[] from, int[] to, int flags) {
+            super(context, layout, c, from, to, flags);
+        }
+
+
     }
+}
 
 
