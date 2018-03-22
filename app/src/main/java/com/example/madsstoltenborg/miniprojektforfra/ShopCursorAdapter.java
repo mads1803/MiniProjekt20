@@ -25,8 +25,8 @@ public class ShopCursorAdapter extends SimpleCursorAdapter{
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, R.string.item_clicked, Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(context, ShopActivity.class);
-                intent.putExtra(ShopActivity.EXTRA_SHOPID, (int) id);
+                Intent intent = new Intent(context, ShopListProducts.class);
+                intent.putExtra(ShopListProducts.EXTRA_SHOPID, (int) id);
                 context.startActivity(intent);
             }
         });

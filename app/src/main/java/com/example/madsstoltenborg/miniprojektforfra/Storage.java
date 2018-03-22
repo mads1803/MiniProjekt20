@@ -113,12 +113,55 @@ public class Storage {
         db.insert("SHOP_PRODUCTS", null, shopProductValues);
     }
 
+
+
     //Produkter der er lagt på shops er tanken
+    // TODO: ny overrided med id - denne er mere proof of concept
     public static Cursor getShopProducts()
     {
         SQLiteDatabase db = shoppingDatabaseHelper.getReadableDatabase();
         return db.query("SHOP_PRODUCTS_VIEW", new String[]{"_id", "SHOP_ID", "PRODUCT_ID", "PRICE", "VOLUME", "SHOPNAME", "PRODUCTNAME" }, null, null, null, null, null);
     }
 
+
+
+    public static void insertGrocerylistProduct(int grocerylist_id, int shop_product_id, int quantity) {
+        SQLiteDatabase db = shoppingDatabaseHelper.getWritableDatabase();
+        ContentValues grocerylistProductValues = new ContentValues();
+        grocerylistProductValues.put("GROCERYLIST_ID", grocerylist_id);
+        grocerylistProductValues.put("SHOP_PRODUCT_ID", shop_product_id);
+        grocerylistProductValues.put("QUANTITY", quantity);
+        db.insert("GROCERYLIST_PRODUCTS", null, grocerylistProductValues);
+    }
+    //TODO: getProductsfromgrocerylists PRØV MED SELECT AL PÅ VIEWET i stedet
+    public static Cursor getGrocerylistProducts(long grocerylist_id)
+    {
+        SQLiteDatabase db = shoppingDatabaseHelper.getReadableDatabase();
+        return db.query("GROCERYLIST_PRODUCTS_VIEW", new String[]{"_id", "GROCERYLIST_ID", "QUANTITY", "PRICE", "PRODUCTNAME", "SHOPNAME", "VOLUME", "BOUGHT"}, "GROCERYLIST_ID = " + grocerylist_id, null, null, null, null);
+    }
+
+
+
+    //TODO: Opsætning til shopProducts
+
+    public Shop getShop(long id) {
+        SQLiteDatabase db = shoppingDatabaseHelper.getReadableDatabase();
+        Cursor cursor = db.query("SHOP",
+                new String[]{"_id", "NAME", "ADDRESS", "WEBSITE"},
+                "_id = ?",
+                new String[]{"" + id},
+                null, null, null);
+        if (cursor.moveToFirst()) {
+            String nameText = cursor.getString(cursor.getColumnIndex("NAME"));
+            String addressText = cursor.getString(cursor.getColumnIndex("ADDRESS"));
+            String websiteText = cursor.getString(cursor.getColumnIndex("WEBSITE"));
+            cursor.close();
+            return new Shop(id, nameText, addressText, websiteText);
+
+        } else {
+            cursor.close();
+            return null;
+        }
+    }
 
 }

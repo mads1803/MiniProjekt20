@@ -4,22 +4,30 @@
 
     <string name="main_options">Options</string>
 
-    <string name="add_Shop">Add Shops</string>
+    <string name="add_Shop">Add Shop</string>
     <string name="delete_Shop">Delete Shops</string>
 
-    <string name="add_Product">Add Products</string>
+    <string name="add_Product">Add Product</string>
     <string name="delete_Product">Delete Products</string>
 
-    <string name="add_GroceryList">Grocery lists</string>
-    <string name="delete_GroceryList">Delete lits</string>
+    <string name="add_GroceryList">Add Grocery list</string>
+    <string name="delete_GroceryList">Delete lists</string>
 
     <string name="addProductGroceryList">Add to List</string>
     <string name="add_shops">Add Shop</string>
+    <string name="grocerylist_product_emptylist">Listen er tom</string>
 
 
     <string-array name="options">
         <item>Shops</item>
         <item>Products</item>
         <item>Grocery List</item>
+    </string-array>
+
+    <string-array name="spinnerTestData">
+        <item>Indkøbsliste1</item>
+        <item>Netto huske liste</item>
+        <item>list2</item>
+
     </string-array>
 </resources>
