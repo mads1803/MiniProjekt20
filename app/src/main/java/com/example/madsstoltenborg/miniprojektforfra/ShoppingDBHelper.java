@@ -74,6 +74,7 @@ public class ShoppingDBHelper extends SQLiteOpenHelper {
                     + "BOUGHT INTEGER,"
                     + "QUANTITY INTEGER);");
 
+
             //TODO: View til shopproducts where productid=shopid
             //a = shopproducts, b = products, c = shops
             db.execSQL("CREATE VIEW SHOP_PRODUCTS_VIEW AS " +
@@ -81,13 +82,8 @@ public class ShoppingDBHelper extends SQLiteOpenHelper {
                     "A._id AS _id, A.SHOP_ID AS SHOP_ID, A.PRODUCT_ID AS PRODUCT_ID, B.NAME AS PRODUCTNAME, B.VOLUME AS VOLUME, A.PRICE AS PRICE, C.NAME AS SHOPNAME " +
                     "FROM SHOP_PRODUCTS A, PRODUCT B, SHOP C " +
                     "WHERE A.PRODUCT_ID = B._id AND A.SHOP_ID = C._id;");
-//
-//            db.execSQL("CREATE VIEW SHOPPINGLIST_PRODUCTS_VIEW AS " +
-//                    "SELECT " +
-//                    "A._id AS _id, A.SHOPPINGLIST_ID AS SHOPPINGLIST_ID, A.QUANTITY AS QUANTITY, A.BOUGHT AS BOUGHT, B.PRICE AS PRICE, C.NAME AS PRODUCTNAME, C.VOLUME AS VOLUME, D.NAME AS SHOPNAME " +
-//                    "FROM SHOPPINGLIST_PRODUCTS A, SHOP_PRODUCTS B, PRODUCTS C, SHOPS D " +
-//                    "WHERE A.SHOP_PRODUCT_ID = B._id AND B.PRODUCT_ID = C._id AND B.SHOP_ID = D._id;");
-//
+
+
             //TODO: view til grocerylistsproduct m
             db.execSQL("CREATE VIEW GROCERYLIST_PRODUCTS_VIEW AS " +
                  "SELECT " +

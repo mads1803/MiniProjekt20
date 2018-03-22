@@ -16,7 +16,8 @@
     <string name="addProductGroceryList">Add to List</string>
     <string name="add_shops">Add Shop</string>
     <string name="grocerylist_product_emptylist">Listen er tom</string>
-
+    <string name="nav_open_drawer">Open navigation drawer</string>
+    <string name="nav_close_drawer">Close navigation drawer</string>
 
     <string-array name="options">
         <item>Shops</item>
