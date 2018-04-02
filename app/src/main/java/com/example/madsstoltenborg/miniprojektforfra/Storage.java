@@ -103,7 +103,7 @@ public class Storage {
         return new GroceryCursorWrapper(cursor);
     }
 
-    //tabel hvor shop og produkt bindes og vises price
+    //tabel hvor shop og produkt price vises
     public static void insertShopProduct(int shop_id, int product_id, double price){
         SQLiteDatabase db = shoppingDatabaseHelper.getWritableDatabase();
         ContentValues shopProductValues = new ContentValues();
@@ -116,14 +116,24 @@ public class Storage {
 
 
     //Produkter der er lagt på shops er tanken
-    // TODO: ny overrided med id - denne er mere proof of concept
+    // TODO: ny overrided med id -
+//    public static Cursor getShopProducts()
+//    {
+//        SQLiteDatabase db = shoppingDatabaseHelper.getReadableDatabase();
+//        return db.query("SHOP_PRODUCTS_VIEW", new String[]{"_id", "SHOP_ID", "PRODUCT_ID", "PRICE", "VOLUME", "SHOPNAME", "PRODUCTNAME" }, null, null, null, null, null);
+//    }
+//TODO Nyt forsøg
     public static Cursor getShopProducts()
     {
         SQLiteDatabase db = shoppingDatabaseHelper.getReadableDatabase();
-        return db.query("SHOP_PRODUCTS_VIEW", new String[]{"_id", "SHOP_ID", "PRODUCT_ID", "PRICE", "VOLUME", "SHOPNAME", "PRODUCTNAME" }, null, null, null, null, null);
+        Cursor shopProducts = db.query("SHOP_PRODUCTS_VIEW", new String[]
+                {"_id", "SHOP_ID", "PRODUCT_ID", "PRICE", "VOLUME", "SHOPNAME", "PRODUCTNAME" },
+                null, null, null, null, null);
+        if (shopProducts != null){
+            shopProducts.moveToFirst();
+        }
+        return shopProducts;
     }
-
-
 
     public static void insertGrocerylistProduct(int grocerylist_id, int shop_product_id, int quantity) {
         SQLiteDatabase db = shoppingDatabaseHelper.getWritableDatabase();
@@ -134,12 +144,22 @@ public class Storage {
         db.insert("GROCERYLIST_PRODUCTS", null, grocerylistProductValues);
     }
     //TODO: getProductsfromgrocerylists PRØV MED SELECT AL PÅ VIEWET i stedet
+//    public static Cursor getGrocerylistProducts(long grocerylist_id)
+//    {
+//        SQLiteDatabase db = shoppingDatabaseHelper.getReadableDatabase();
+//        return db.query("GROCERYLIST_PRODUCTS_VIEW", new String[]{"_id", "GROCERYLIST_ID", "QUANTITY", "PRICE", "PRODUCTNAME", "SHOPNAME", "VOLUME", "BOUGHT"}, "GROCERYLIST_ID = " + grocerylist_id, null, null, null, null);
+//    }
+
+    // TODO  nyt forsøg
     public static Cursor getGrocerylistProducts(long grocerylist_id)
     {
         SQLiteDatabase db = shoppingDatabaseHelper.getReadableDatabase();
-        return db.query("GROCERYLIST_PRODUCTS_VIEW", new String[]{"_id", "GROCERYLIST_ID", "QUANTITY", "PRICE", "PRODUCTNAME", "SHOPNAME", "VOLUME", "BOUGHT"}, "GROCERYLIST_ID = " + grocerylist_id, null, null, null, null);
+        Cursor groceryListProducts = db.query("GROCERYLIST_PRODUCTS_VIEW", new String[]{"_id", "GROCERYLIST_ID", "QUANTITY", "PRICE", "PRODUCTNAME", "SHOPNAME", "VOLUME", "BOUGHT"}, "GROCERYLIST_ID = " + grocerylist_id, null, null, null, null);
+    if(groceryListProducts != null){
+        groceryListProducts.moveToFirst();
     }
-
+    return groceryListProducts;
+    }
 
 
     //TODO: Opsætning til shopProducts
